@@ -22,7 +22,13 @@ class MainActivity : AppCompatActivity() {
     Calculates the tip based on the service cost
      */
     private fun calculateTip() {
-        val cost = binding.costOfService.text.toString().toDouble()
+        val cost = binding.costOfService.text.toString().toDoubleOrNull()
+
+        if (cost == null) {
+            binding.tipResult.text = ""
+            binding.totalAmount.text = ""
+            return
+        }
 
         //determine tip percent from radio buttons
         val tipPercent = when (binding.tipOptions.checkedRadioButtonId) {
