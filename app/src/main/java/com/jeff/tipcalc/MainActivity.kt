@@ -8,7 +8,7 @@ import kotlin.math.ceil
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity() {
         val cost = binding.costOfService.text.toString().toDoubleOrNull()
 
         if (cost == null) {
-            binding.tipResult.text = ""
-            binding.totalAmount.text = ""
+            displayTip(0.0)
+            displayTot(0.0)
             return
         }
 
@@ -38,14 +38,29 @@ class MainActivity : AppCompatActivity() {
         }
         var tip = cost * tipPercent     //normal tip
 
+        //round up function from switch on
         if (binding.roundUpSwitch.isChecked) {
             tip = ceil(tip)
         }
 
-        val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
-        binding.tipResult.text = getString(R.string.tip, formattedTip)
-        val formattedTotal = NumberFormat.getCurrencyInstance().format(tip+cost)
-        binding.totalAmount.text = getString(R.string.total_amount, formattedTotal)
+        //display function calls
+        displayTip(tip)
+        displayTot(tip + cost)
+    }
 
+    /*
+    This function takes in the amount of tip and puts it in the TextView text
+     */
+    private fun displayTip(tip: Double) {
+        val formattedAmt = NumberFormat.getCurrencyInstance().format(tip)
+        binding.tipResult.text = getString(R.string.tip, formattedAmt)
+    }
+
+    /*
+    This function takes in the amount of tip + cost or total and puts it in the TextView text
+     */
+    private fun displayTot(total: Double) {
+        val formattedTotal = NumberFormat.getCurrencyInstance().format(total)
+        binding.totalAmount.text = getString(R.string.total_amount, formattedTotal)
     }
 }
