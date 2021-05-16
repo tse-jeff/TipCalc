@@ -7,6 +7,19 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/label">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <EditText
         android:id="@+id/cost_of_service"
         android:layout_width="wrap_content"
