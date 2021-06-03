@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,26 +13,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:importantForAccessibility="no"
-        app:srcCompat="@drawable/ic_store"
+        app:layout_constraintBottom_toBottomOf="@+id/cost_of_service"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/cost_of_service"
-        app:layout_constraintBottom_toBottomOf="@+id/cost_of_service" />
+        app:srcCompat="@drawable/ic_store" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cost_of_service"
+        style="@style/Widget.TipCalc.TextView"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:hint="Cost of Service"
         android:layout_marginStart="16dp"
+        android:hint="Cost of Service"
         app:layout_constraintStart_toEndOf="@+id/icon_cost_of_service"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/cost_of_service_edit_text"
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:inputType="numberDecimal"
-        />
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,17 +41,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:importantForAccessibility="no"
-        app:srcCompat="@drawable/ic_service"
+        app:layout_constraintBottom_toBottomOf="@+id/service_question"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/service_question"
-        app:layout_constraintBottom_toBottomOf="@+id/service_question" />
+        app:srcCompat="@drawable/ic_service" />
 
     <TextView
         android:id="@+id/service_question"
+        style="@style/Widget.TipCalc.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/question"
         android:layout_marginTop="16dp"
+        android:text="@string/question"
         app:layout_constraintStart_toStartOf="@+id/cost_of_service"
         app:layout_constraintTop_toBottomOf="@id/cost_of_service" />
 
@@ -87,10 +89,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:importantForAccessibility="no"
-        app:srcCompat="@drawable/ic_round_up"
+        app:layout_constraintBottom_toBottomOf="@+id/round_up_switch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/round_up_switch"
-        app:layout_constraintBottom_toBottomOf="@+id/round_up_switch" />
+        app:srcCompat="@drawable/ic_round_up" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/round_up_switch"
@@ -106,14 +108,15 @@
         android:id="@+id/calculate_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/calc"
         android:layout_marginTop="8dp"
+        android:text="@string/calc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/round_up_switch"
         app:layout_constraintTop_toBottomOf="@id/round_up_switch" />
 
     <TextView
         android:id="@+id/tip_result"
+        style="@style/Widget.TipCalc.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,11 +125,12 @@
 
     <TextView
         android:id="@+id/total_amount"
+        style="@style/Widget.TipCalc.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tip_result"
-        tools:text="Total Amount: $65.56"/>
+        tools:text="Total Amount: $65.56" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
