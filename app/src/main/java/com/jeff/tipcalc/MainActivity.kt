@@ -1,6 +1,10 @@
 package com.jeff.tipcalc
 
+import android.content.Context
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.jeff.tipcalc.databinding.ActivityMainBinding
 import java.text.NumberFormat
@@ -16,6 +20,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.calculateButton.setOnClickListener { calculateTip() }
+
+        setContentView(binding.root)
+
+        binding.calculateButton.setOnClickListener { calculateTip() }
+
+        binding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)
+        }
     }
 
     /*
@@ -62,5 +73,16 @@ class MainActivity : AppCompatActivity() {
     private fun displayTot(total: Double) {
         val formattedTotal = NumberFormat.getCurrencyInstance().format(total)
         binding.totalAmount.text = getString(R.string.total_amount, formattedTotal)
+    }
+
+    private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            // Hide the keyboard
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+            return true
+        }
+        return false
     }
 }
