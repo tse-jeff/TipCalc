@@ -4,7 +4,7 @@
     <string name="amazing">Amazing (20%)</string>
     <string name="good">Good (18%)</string>
     <string name="okay">Okay (15%)</string>
-    <string name="round">Round up tip?</string>
+    <string name="round">Round up total?</string>
     <string name="calc">Calculate</string>
     <string name="tip">Tip Amount: %s</string>
     <string name="total_amount">Total Amount: %s</string>

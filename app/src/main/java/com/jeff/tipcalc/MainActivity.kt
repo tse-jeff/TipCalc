@@ -8,7 +8,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.jeff.tipcalc.databinding.ActivityMainBinding
 import java.text.NumberFormat
-import kotlin.math.ceil
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.calculateButton.setOnClickListener { calculateTip() }
+
+        binding.roundUpSwitch.setOnClickListener { calculateTip() }
 
         binding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)
         }
@@ -48,10 +49,14 @@ class MainActivity : AppCompatActivity() {
             else -> .15
         }
         var tip = cost * tipPercent     //normal tip
+        var total = cost + tip
 
         //round up function from switch on
         if (binding.roundUpSwitch.isChecked) {
-            tip = ceil(tip)
+//            tip = ceil(tip)
+            total = kotlin.math.ceil(total)
+            tip = total - cost
+
         }
 
         //display function calls
