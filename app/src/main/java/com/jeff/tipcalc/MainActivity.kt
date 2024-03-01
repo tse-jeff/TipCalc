@@ -22,6 +22,11 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        binding.optionEighteenPercent.setOnClickListener { calculateTip() }
+        binding.optionFifteenPercent.setOnClickListener { calculateTip() }
+        binding.optionTwentyPercent.setOnClickListener { calculateTip() }
+
+
         binding.calculateButton.setOnClickListener { calculateTip() }
 
         binding.roundUpSwitch.setOnClickListener { calculateTip() }
